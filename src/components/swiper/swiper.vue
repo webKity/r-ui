@@ -1,6 +1,7 @@
 <template>
   <div ref="swiper" class="m-swiper" :style="{height: _height}">
     <slot></slot>
+    <div class="indicator">{{active + 1 + '/' + items.length}}</div>
   </div>
 </template>
 
@@ -19,10 +20,10 @@ export default{
     return {
       _width: 0,
       duration: 300,
-      $container: null,
-      $items: [],
+      container: null,
+      items: [],
       active: 0,
-      sensitivity: 30, // 触发切换的阈值
+      sensitivity: 60, // 触发切换的阈值
       resistance: 0.3, // 阻力系数
       start: {
         x: 0,
@@ -45,23 +46,15 @@ export default{
   },
   methods: {
     init () {
-      this.$container = this.$refs.swiper
-      this.$items = this.$container.querySelectorAll('.m-swiper-item')
+      this.container = this.$refs.swiper
+      this.items = this.container.querySelectorAll('.m-swiper-item')
       this.updateItemWidth()
       this.setTransform()
-      this.setTransition()
+      this.setTransition('none')
       this.bindEvent()
     },
     updateItemWidth () {
-      this._width = this.$container.offsetWidth || document.documentElement.offsetWidth
-    },
-    setTransition (duration) {
-      duration = duration || this.duration
-      duration = typeof duration === 'number' ? (duration + 'ms') : duration
-      R.map((item) => {
-        item.style.webkitTransition = duration
-        item.style.transition = duration
-      })(this.$items)
+      this._width = this.container.offsetWidth || document.documentElement.offsetWidth
     },
     setTransform (offset) {
       offset = offset || 0
@@ -70,17 +63,23 @@ export default{
         let transform = `translate3d(${distance}px, 0, 0)`
         item.style.webkitTransform = transform
         item.style.transform = transform
-      })(this.$items)
+      })(this.items)
+    },
+    setTransition (duration) {
+      duration = duration || this.duration
+      duration = typeof duration === 'number' ? (duration + 'ms') : duration
+      R.map((item) => {
+        item.style.webkitTransition = duration
+        item.style.transition = duration
+      })(this.items)
     },
     bindEvent () {
-      this.$container.addEventListener('touchstart', this.moveStart)
-      this.$container.addEventListener('touchmove', this.moving)
-      this.$container.addEventListener('touchend', this.moveEnd)
+      this.container.addEventListener('touchstart', this.moveStart)
+      this.container.addEventListener('touchmove', this.moving)
     },
     removeEvent () {
-      this.$container.removeEventListener('touchstart', this.moveStart)
-      this.$container.removeEventListener('touchmove', this.moving)
-      this.$container.removeEventListener('touchend', this.moveEnd)
+      this.container.removeEventListener('touchstart', this.moveStart)
+      this.container.removeEventListener('touchmove', this.moving)
     },
     moveStart (e) {
       this.start.x = e.changedTouches[0].pageX
@@ -88,14 +87,20 @@ export default{
       this.setTransition('none')
     },
     moving (e) {
-      e.preventDefault()
       this.move.x = e.changedTouches[0].pageX
       this.move.y = e.changedTouches[0].pageY
-      let distance = this.move.x - this.start.x
-      if (this.active === 0 || this.active === (this.$items.length - 1)) {
-        distance = distance * this.resistance
+      let distanceX = this.move.x - this.start.x
+      let distanceY = this.move.y - this.start.y
+      if (Math.abs(distanceY) > Math.abs(distanceX)) {
+        this.container.removeEventListener('touchend', this.moveEnd)
+      } else {
+        e.preventDefault()
+        if ((this.active === 0 && distanceX > 0) || (this.active === (this.items.length - 1) && distanceX < 0)) {
+          distanceX = distanceX * this.resistance
+        }
+        this.setTransform(distanceX)
+        this.container.addEventListener('touchend', this.moveEnd)
       }
-      this.setTransform(distance)
     },
     moveEnd (e) {
       let distance = this.move.x - this.start.x
@@ -111,8 +116,8 @@ export default{
     },
     next () {
       this.active += 1
-      if (this.active > this.$items.length - 1) {
-        this.active = this.$items.length - 1
+      if (this.active > this.items.length - 1) {
+        this.active = this.items.length - 1
       }
       this.setTransition()
       this.setTransform()
@@ -130,13 +135,17 @@ export default{
       this.move.y = 0
       this.setTransition()
       this.setTransform()
+    },
+    destroy () {
+      this.setTransition('none')
+      this.removeEvent()
     }
   },
   mounted () {
     this.$nextTick(this.init)
   },
   beforeDestroy () {
-    this.removeEvent()
+    this.destroy()
   }
 }
 </script>
@@ -145,5 +154,15 @@ export default{
 .m-swiper{
   position: relative;
   overflow: hidden;
+  .indicator{
+    position: absolute;
+    right: 10px;
+    bottom:10px;
+    padding: 10px;
+    border-radius: 100%;
+    background-color: rgba(0,0,0,.5);
+    color: #fff;
+    font-size: 14px;
+  }
 }
 </style>
