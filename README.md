@@ -1,6 +1,6 @@
 # m-ui
 
-> A Vue.js project
+> vue2.0 移动端UI组件
 
 ## Build Setup
 
