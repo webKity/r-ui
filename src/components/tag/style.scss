@@ -1,0 +1,47 @@
+@import "./../style/color.scss";
+@import "./../style/fontSize.scss";
+@import "./../style/mixin.scss";
+
+.r-tag{
+  @include linkSize;
+  @include px(padding-left, 12);
+  @include px(padding-right, 12);
+  @include px(padding-top, 3);
+  @include px(padding-bottom, 3);
+  @include px(border-radius, 5);
+  @include v-middle;
+  line-height: 1.4;
+}
+.r-tag.round{
+  @include px(border-radius, 20);
+  @include px(padding-left, 25);
+  @include px(padding-right, 25);
+}
+.r-tag.default{
+  border:1px solid $borderColor;
+  color: $grayColor;
+}
+.r-tag.yellow{
+  border:1px solid $yellowColor;
+  color: $yellowColor;
+}
+.r-tag.green{
+  border:1px solid $greenColor;
+  color: $greenColor;
+}
+.r-tag.primary{
+  border:1px solid $primaryColor;
+  color: $primaryColor;
+}
+.r-tag.red{
+  border:1px solid $redColor;
+  color: $redColor;
+}
+.r-tag.blue{
+  border:1px solid $blueColor;
+  color: $blueColor;
+}
+.r-tag.info{
+  border:1px solid $infoColor;
+  color: $infoColor;
+}

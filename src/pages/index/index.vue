@@ -1,11 +1,11 @@
 <template>
   <div class="index">
-    <m-swiper height="180px">
-      <m-swiper-item class="item">
+    <r-swiper height="180px">
+      <r-swiper-item class="item">
         <router-link to="/link">asdasd</router-link>
-      </m-swiper-item>
-      <m-swiper-item class="item">231321313</m-swiper-item>
-    </m-swiper>
+      </r-swiper-item>
+      <r-swiper-item class="item">231321313</r-swiper-item>
+    </r-swiper>
     213213<br />
     213213<br />
     213213<br />
@@ -46,10 +46,10 @@
 </template>
 
 <script>
-import {mSwiper, mSwiperItem} from '../../components/swiper'
+import {rSwiper, rSwiperItem} from '../../components/swiper'
 
 export default{
-  components: {mSwiper, mSwiperItem},
+  components: {rSwiper, rSwiperItem},
   data () {
     return {
       swiperActive: 0

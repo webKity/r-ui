@@ -1,0 +1,23 @@
+@import "../style/color.scss";
+@import "../style/fontSize.scss";
+@import "../style/mixin.scss";
+
+.r-backtop{
+  position: absolute;
+  @include px(right, 30);
+  @include px(bottom, 130);
+  @include px(width, 85);
+  @include px(height, 85);
+  @include px(border-radius, 43);
+  @include px(padding-top, 8);
+  box-sizing: border-box;
+  overflow: hidden;
+  background-color: rgba(0,0,0,.5);
+  color: $whiteColor;
+  text-align: center;
+  @include linkSize;
+  line-height: 1.3;
+  i{
+    @include textSize;
+  }
+}

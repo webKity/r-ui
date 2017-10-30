@@ -1,5 +1,5 @@
 <template>
-  <div ref="swiper" class="m-swiper" :style="{height: _height}">
+  <div ref="swiper" class="r-swiper" :style="{height: _height}">
     <slot></slot>
     <div class="indicator">{{active + 1 + '/' + items.length}}</div>
   </div>
@@ -8,7 +8,6 @@
 <script>
 let R = require('ramda')
 let mapIndexed = R.addIndex(R.map)
-
 export default{
   props: {
     height: {
@@ -18,6 +17,7 @@ export default{
   },
   data () {
     return {
+      isMoving: false,
       _width: 0,
       duration: 300,
       container: null,
@@ -47,7 +47,7 @@ export default{
   methods: {
     init () {
       this.container = this.$refs.swiper
-      this.items = this.container.querySelectorAll('.m-swiper-item')
+      this.items = this.container.querySelectorAll('.r-swiper-item')
       this.updateItemWidth()
       this.setTransform()
       this.setTransition('none')
@@ -87,6 +87,8 @@ export default{
       this.setTransition('none')
     },
     moving (e) {
+      e.preventDefault()
+      this.isMoving = true
       this.move.x = e.changedTouches[0].pageX
       this.move.y = e.changedTouches[0].pageY
       let distanceX = this.move.x - this.start.x
@@ -94,7 +96,6 @@ export default{
       if (Math.abs(distanceY) > Math.abs(distanceX)) {
         this.container.removeEventListener('touchend', this.moveEnd)
       } else {
-        e.preventDefault()
         if ((this.active === 0 && distanceX > 0) || (this.active === (this.items.length - 1) && distanceX < 0)) {
           distanceX = distanceX * this.resistance
         }
@@ -103,36 +104,46 @@ export default{
       }
     },
     moveEnd (e) {
-      let distance = this.move.x - this.start.x
-      if (Math.abs(distance) > this.sensitivity) {
-        if (distance < 0) {
-          this.next()
+      if (this.isMoving) {
+        let distance = this.move.x - this.start.x
+        if (Math.abs(distance) > this.sensitivity) {
+          if (distance < 0) {
+            this.next()
+          } else {
+            this.prev()
+          }
         } else {
-          this.prev()
+          this.back() // 如果滑动达不到阈值，所有元素重置回之前状态
         }
-      } else {
-        this.back() // 如果滑动达不到阈值，所有元素重置回之前状态
+        this.reset()
+        this.isMoving = false
       }
     },
     next () {
-      this.active += 1
-      if (this.active > this.items.length - 1) {
+      let index = this.active + 1
+      this.go(index)
+    },
+    prev () {
+      let index = this.active - 1
+      this.go(index)
+    },
+    go (index) {
+      this.active = index
+      if (this.active < 0) {
+        this.active = 0
+      } else if (this.active > this.items.length - 1) {
         this.active = this.items.length - 1
       }
       this.setTransition()
       this.setTransform()
     },
-    prev () {
-      this.active -= 1
-      if (this.active < 0) {
-        this.active = 0
-      }
-      this.setTransition()
-      this.setTransform()
-    },
-    back () {
+    reset () {
+      this.start.x = 0
+      this.start.y = 0
       this.move.x = 0
       this.move.y = 0
+    },
+    back () {
       this.setTransition()
       this.setTransform()
     },
@@ -140,29 +151,30 @@ export default{
       this.setTransition('none')
       this.removeEvent()
     }
-  },
-  mounted () {
-    this.$nextTick(this.init)
-  },
-  beforeDestroy () {
-    this.destroy()
   }
 }
 </script>
 
 <style lang="scss">
-.m-swiper{
+@import "../style/color.scss";
+@import "../style/fontSize.scss";
+@import "../style/mixin.scss";
+
+.r-swiper{
   position: relative;
   overflow: hidden;
   .indicator{
     position: absolute;
-    right: 10px;
-    bottom:10px;
-    padding: 10px;
-    border-radius: 100%;
+    @include px(right, 20);
+    @include px(bottom, 20);
+    @include px(width, 80);
+    @include px(height, 80);
+    @include px(line-height, 80);
+    @include px(border-radius, 40);
+    text-align: center;
     background-color: rgba(0,0,0,.5);
-    color: #fff;
-    font-size: 14px;
+    color: $whiteColor;
+    @include linkSize;
   }
 }
 </style>

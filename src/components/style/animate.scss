@@ -1,0 +1,198 @@
+@charset "UTF-8";
+
+/*!
+ * animate.css -http://daneden.me/animate
+ * Version - 3.5.2
+ * Licensed under the MIT license - http://opensource.org/licenses/MIT
+ *
+ * Copyright (c) 2017 Daniel Eden
+ */
+
+.animated {
+  animation-duration: 0.4s;
+  animation-fill-mode: both;
+}
+
+.animated.infinite {
+  animation-iteration-count: infinite;
+}
+
+.animated.hinge {
+  animation-duration: 1s;
+}
+.animated.quick {
+  animation-duration: 0.4s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+.fadeIn {
+  animation-timing-function: cubic-bezier(.42,0,.58,1);
+  animation-name: fadeIn;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+.fadeOut {
+  animation-timing-function: cubic-bezier(.42,0,.58,1);
+  animation-name: fadeOut;
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translate(0, -100%);
+  }
+
+  to {
+    transform: translate(0, 0);
+  }
+}
+.slideInDown {
+  animation-timing-function: cubic-bezier(.42,0,.58,1);
+  animation-name: slideInDown;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translate(-100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate(0, 0);
+  }
+}
+.slideInLeft {
+  animation-timing-function: cubic-bezier(.42,0,.58,1);
+  animation-name: slideInLeft;
+}
+
+@keyframes slideInRight {
+  from {
+    -webkit-transform: translate(100%, 0);
+    transform: translate(100%, 0);
+    visibility: visible;
+  }
+  to {
+    transform: translate(0, 0);
+  }
+}
+.slideInRight {
+  animation-timing-function: cubic-bezier(.42,0,.58,1);
+  animation-name: slideInRight;
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translate(0, 100%);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate(0, 0);
+  }
+}
+.slideInUp {
+  animation-timing-function: cubic-bezier(.42,0,.58,1);
+  animation-name: slideInUp;
+}
+
+@keyframes slideOutDown {
+  from {
+    transform: translate(0, 0);
+  }
+
+  to {
+    visibility: hidden;
+    transform: translate(0, 100%);
+  }
+}
+.slideOutDown {
+  animation-timing-function: cubic-bezier(.42,0,.58,1);
+  animation-name: slideOutDown;
+}
+
+@keyframes slideOutLeft {
+  from {
+    transform: translate(0, 0);
+  }
+
+  to {
+    visibility: hidden;
+    transform: translate(-100%, 0);
+  }
+}
+.slideOutLeft {
+  animation-timing-function: cubic-bezier(.42,0,.58,1);
+  animation-name: slideOutLeft;
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translate(0, 0);
+  }
+
+  to {
+    visibility: hidden;
+    transform: translate(100%, 0);
+  }
+}
+.slideOutRight {
+  animation-timing-function: cubic-bezier(.42,0,.58,1);
+  animation-name: slideOutRight;
+}
+
+@keyframes slideOutUp {
+  from {
+    transform: translate(0, 0);
+  }
+
+  to {
+    visibility: hidden;
+    transform: translate(0, -100%);
+  }
+}
+.slideOutUp {
+  animation-timing-function: cubic-bezier(.42,0,.58,1);
+  animation-name: slideOutUp;
+}
+
+.popIn {
+  animation-timing-function: cubic-bezier(.42,0,.58,1);
+  animation-name: popIn;
+}
+@keyframes popIn {
+  0% {
+    transform: scale3d(0, 0, 0);
+  }
+  100% {
+    transform: scale3d(1,1,1);
+  }
+}
+
+.popOut {
+  animation-timing-function: cubic-bezier(.42,0,.58,1);
+  animation-name: popOut;
+}
+@keyframes popOut {
+  0% {
+    transform: scale3d(1,1,1);
+  }
+  100% {
+    transform: scale3d(0, 0, 0);
+  }
+}

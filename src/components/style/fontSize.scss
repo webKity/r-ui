@@ -1,0 +1,54 @@
+$linkSize: 12px;
+$smallSize: 13px;
+$textSize: 14px;
+$titleSize: 16px;
+$h6Size: 18px;
+$h5Size: 24px;
+$h4Size: 30px;
+$h3Size: 36px;
+$h2Size: 40px;
+$h1Size: 44px;
+$bigSize: 55px;
+
+@mixin font-dpr($font-size) {
+  font-size: $font-size;
+  [data-dpr="2"] & {
+    font-size: $font-size * 2;
+  }
+  [data-dpr="3"] & {
+    font-size: $font-size * 3;
+  }
+}
+@mixin linkSize () {
+  @include font-dpr($linkSize);
+}
+@mixin smallSize () {
+  @include font-dpr($smallSize);
+}
+@mixin textSize () {
+  @include font-dpr($textSize);
+}
+@mixin titleSize () {
+  @include font-dpr($titleSize);
+}
+@mixin h6Size () {
+  @include font-dpr($h6Size);
+}
+@mixin h5Size () {
+  @include font-dpr($h5Size);
+}
+@mixin h4Size () {
+  @include font-dpr($h4Size);
+}
+@mixin h3Size () {
+  @include font-dpr($h3Size);
+}
+@mixin h2Size () {
+  @include font-dpr($h2Size);
+}
+@mixin h1Size () {
+  @include font-dpr($h1Size);
+}
+@mixin bigSize () {
+  @include font-dpr($bigSize);
+}

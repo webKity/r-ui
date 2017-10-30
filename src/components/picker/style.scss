@@ -1,0 +1,85 @@
+@import "../style/color.scss";
+@import "../style/fontSize.scss";
+@import "../style/mixin.scss";
+
+.r {
+  &-picker {
+    &-item {
+      overflow: hidden;
+      width: 100%;
+      text-align: center;
+      height: 220px;
+      background: $whiteColor;
+      position: relative;
+    }
+    &-ul {
+      position: relative;
+    }
+    &-line, &-list, &-wheel {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 93px;
+    }
+    &-line {
+      z-index: 3;
+    }
+    &-list {
+      z-index: 2;
+      background: $whiteColor;
+    }
+    &-wheel {
+      z-index: 1;
+    }
+    &-line {
+      &:after, &:before {
+        position: absolute;
+        top: 0;
+        content: '';
+        display: table;
+        background: $borderColor;
+        width: 100%;
+        height: 1px;
+        -webkit-transform: scaleY(0.5);
+        transform: scaleY(0.5);
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+      }
+      &:before {
+        bottom: -1px;
+        top: auto;
+      }
+    }
+    &-line, &-list {
+      height: 34px;
+      transform: translate3d(0px, 0px, 110px);
+    }
+    &-list {
+      overflow: hidden;
+    }
+    &-list-item, &-wheel-item {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 34px;
+      @include textSize;
+      color: $blackColor;
+      &.hidden {
+        visibility: hidden;
+        opacity: 0;
+      }
+    }
+    &-wheel {
+      transform-style: preserve-3d;
+      perspective-origin:center center;
+      height: 34px;
+      &-item {
+        backface-visibility: hidden;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        color: $grayColor;
+      }
+    }
+  }
+}

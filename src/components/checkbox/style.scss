@@ -1,0 +1,32 @@
+@import "../style/color.scss";
+@import "../style/fontSize.scss";
+@import "../style/mixin.scss";
+
+.r-checkbox{
+  @include textSize;
+  .r-checkbox-label{
+    color: $blackColor;
+    @include px(padding-top, 30);
+    @include px(padding-bottom, 30);
+    @include px(margin-left, 25);
+  }
+  .r-checkbox-list{
+    .r-checkbox-item{
+      display: inline-block;
+      @include px(padding-left, 30);
+      @include px(padding-right, 30);
+      @include px(padding-top, 20);
+      @include px(padding-bottom, 20);
+      @include px(border-radius, 12);
+      @include px(margin-left, 25);
+      @include px(margin-bottom, 25);
+      background-color: $lightGrayColor;
+      color: $darkGrayColor;
+      @include px(padding-bottom, 20);
+    }
+    .active{
+      background-color: $primaryColor;
+      color: $whiteColor;
+    }
+  }
+}

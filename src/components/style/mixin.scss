@@ -1,0 +1,52 @@
+@import "./color.scss";
+
+@mixin box-sizing ($sizing) {
+    -webkit-box-sizing:$sizing;
+       -moz-box-sizing:$sizing;
+            box-sizing:$sizing;
+}
+@mixin block-center () {
+  width:$minWidth;
+  margin-left:auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+@mixin fixed-block {
+  position: absolute;
+  left:0;
+  width:100%;
+  padding:5px 10px;
+  border:1px solid #f2f2f2;
+  border-radius: 0px;
+  background-color: $whiteColor;
+  box-shadow: 0 5px 20px 0 rgba(0,0,0,0.1);
+  z-index: 9999;
+}
+@mixin one-screen {
+  position: absolute;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  overflow: hidden;
+}
+@mixin ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+@mixin back-size {
+  background-position: center;
+  background-size: cover;
+}
+@mixin overflow-scroll {
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+@mixin v-middle {
+  display: inline-block;
+  vertical-align: middle;
+}
+@mixin px($attr, $size) {
+  #{$attr}: ($size / 75) + rem;
+}

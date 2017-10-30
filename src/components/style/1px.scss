@@ -1,0 +1,103 @@
+@import "./color.scss";
+@import "./fontSize.scss";
+@import "./mixin.scss";
+
+@mixin setLine($c: $borderColor) {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 200%;
+  height: 1px;
+  border: 1px solid $c;
+  color: $c;
+  height: 200%;
+  transform-origin: left top;
+  transform: scale(0.5);
+}
+@mixin setTopLine($c: $borderColor) {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 1px;
+  border-top: 1px solid $c;
+  color: $c;
+  transform-origin: 0 0;
+  transform: scaleY(0.5);
+}
+@mixin setBottomLine($c: $borderColor) {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 1px;
+  border-bottom: 1px solid $c;
+  color: $c;
+  transform-origin: 0 100%;
+  transform: scaleY(0.5);
+}
+@mixin setLeftLine($c: $borderColor) {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  bottom: 0;
+  border-left: 1px solid $c;
+  color: $c;
+  transform-origin: 0 0;
+  transform: scaleX(0.5);
+}
+@mixin setRightLine($c: $borderColor) {
+  content: " ";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 1px;
+  bottom: 0;
+  border-right: 1px solid $c;
+  color: $c;
+  transform-origin: 100% 0;
+  transform: scaleX(0.5);
+}
+.r-1px, .r-1px-t, .r-1px-b, .r-1px-tb, .r-1px-l, .r-1px-r {
+  position: relative;
+}
+.r-1px {
+  &:before {
+    @include setLine;
+  }
+}
+.r-1px-t {
+  &:before {
+    @include setTopLine;
+  }
+}
+.r-1px-b {
+  &:after {
+    @include setBottomLine;
+  }
+}
+.r-1px-tb {
+  &:before {
+    @include setTopLine;
+  }
+  &:after {
+    @include setBottomLine;
+  }
+}
+.r-1px-l {
+  &:before {
+    @include setLeftLine;
+  }
+}
+.r-1px-r {
+  &:after {
+    @include setRightLine;
+  }
+}

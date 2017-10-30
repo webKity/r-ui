@@ -1,0 +1,29 @@
+@import "./../style/color.scss";
+@import "./../style/fontSize.scss";
+@import "./../style/mixin.scss";
+
+.r-select{
+  position: relative;
+  width: 100%;
+  @include v-middle;
+  .r-select-label{
+    color: $lightBlackColor;
+    @include px(padding-top, 5);
+    @include px(padding-bottom, 5);
+    @include textSize;
+    span{
+      @include v-middle;
+    }
+  }
+  .icon-dropdown{
+    @include px(margin-left, 5);
+  }
+  .r-select-options{
+    @include one-screen;
+    opacity: 0;
+    z-index: 1;
+    option{
+      @include textSize;
+    }
+  }
+}

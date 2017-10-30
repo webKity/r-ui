@@ -1,0 +1,29 @@
+@import "../style/color.scss";
+@import "../style/fontSize.scss";
+@import "../style/mixin.scss";
+
+.r-page{
+  background-color: $lightGrayColor;
+  @include one-screen;
+  .r-page-head{
+    position: fixed;
+    top:0;
+    left:0;
+    z-index: 2;
+    width:100%;
+  }
+  .r-page-content{
+    @include one-screen;
+    .r-page-wrap{
+      @include one-screen;
+      @include overflow-scroll;
+    }
+  }
+  .r-page-foot{
+    position: fixed;
+    bottom:0;
+    left:0;
+    z-index: 1;
+    width:100%;
+  }
+}

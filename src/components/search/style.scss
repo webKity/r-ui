@@ -1,0 +1,96 @@
+@import "./../style/color.scss";
+@import "./../style/fontSize.scss";
+@import "./../style/mixin.scss";
+@import "./../style/1px.scss";
+
+.r-search{
+  width: 100%;
+  background-color: $lightGrayColor;
+  color: $darkGrayColor;
+  @include textSize;
+  @include px(border-radius, 10);
+  overflow: hidden;
+  .r-search-control{
+    color: $grayColor;
+    @include px(padding, 10);
+    @include textSize;
+    .r-search-placeholder{
+      @include v-middle;
+    }
+  }
+  .r-search-content{
+    padding: 0;
+    .head{
+      background-color: $whiteColor;
+      @include px(padding-left, 20);
+      .search-input{
+        @include px(padding-right, 20);
+        .input{
+          width: 100%;
+          outline:none;
+          border: none;
+          @include px(width, 485);
+          @include px(height, 60);
+          @include px(line-height, 60);
+          @include px(padding-left, 10);
+          @include px(padding-right, 10);
+          @include px(margin-top, 15);
+          @include px(margin-bottom, 15);
+        }
+        i{
+          color: $grayColor;
+          @include h6Size;
+        }
+      }
+      .search-cancle{
+        width: 100%;
+        @include px(height, 90);
+        color: $primaryColor;
+        span{
+          width: 100%;
+          @include px(height, 40);
+          @include px(line-height, 40);
+          @include px(margin-top, 25);
+          text-align: center;
+          display:inline-block;
+          @extend .r-1px-l;
+        }
+      }
+    }
+    .result{
+      width: 100%;
+      .tip{
+        @include px(padding, 20);
+        @include px(margin-top, 20);
+        .word{
+          color: $blackColor;
+        }
+        .icon{
+          width: 100%;
+          text-align: right;
+          @include h6Size;
+        }
+      }
+      .list{
+        background-color: $whiteColor;
+        @include px(padding-left, 20);
+        @include px(padding-right, 20);
+        @extend .r-1px-t;
+        .item{
+          @include px(padding-top, 25);
+          @include px(padding-bottom, 25);
+          @extend .r-1px-b;
+          color: $grayColor;
+        }
+        .last{
+          &:after{
+            border:none;
+          }
+        }
+      }
+      .b-border{
+        @extend .r-1px-b;
+      }
+    }
+  }
+}

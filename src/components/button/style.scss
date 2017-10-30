@@ -1,0 +1,91 @@
+@import "../style/color.scss";
+@import "../style/fontSize.scss";
+@import "../style/mixin.scss";
+
+.r-button{
+  position: relative;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  @include v-middle;
+  &:active{
+    opacity: 0.5;
+  }
+  &:after {
+    content: " ";
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scale(.5);
+    transform-origin: 0 0;
+    box-sizing: border-box;
+  }
+}
+.r-button.normal{
+  @include textSize;
+  @include px(padding-top, 22);
+  @include px(padding-bottom, 22);
+  @include px(padding-left, 45);
+  @include px(padding-right, 45);
+}
+.r-button.big{
+  @include titleSize;
+  @include px(padding-top, 30);
+  @include px(padding-bottom, 30);
+  @include px(padding-left, 50);
+  @include px(padding-right, 50);
+}
+.r-button.radius{
+  @include px(border-radius, 10);
+}
+.r-button.round{
+  @include px(border-radius, 40);
+}
+.r-button.default{
+  color: $darkGrayColor;
+  &:after {
+    @include px(border-radius, 20);
+    border: 1px solid $borderColor;
+  }
+}
+.r-button.fill.default{
+  background-color: $lightGrayColor;
+  color: $grayColor;
+}
+.r-button.primary{
+  color: $primaryColor;
+  &:after {
+    @include px(border-radius, 20);
+    border: 1px solid $primaryColor;
+  }
+}
+.r-button.fill.primary{
+  background-color: $primaryColor;
+  color: $whiteColor;
+}
+.r-button.blue{
+  color: $blueColor;
+  &:after {
+    @include px(border-radius, 20);
+    border: 1px solid $blueColor;
+  }
+}
+.r-button.fill.blue{
+  background-color: $blueColor;
+  color: $whiteColor;
+}
+.r-button.fill.white{
+  background-color: $whiteColor;
+  color: $blackColor;
+}
+.r-button.fluid{
+  width: 100%;
+  text-align: center;
+}
+.r-button[disabled]{
+  background-color: #d4d4d4!important;
+  color: $whiteColor!important;
+  border: none!important;
+}

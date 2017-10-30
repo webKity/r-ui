@@ -1,7 +1,7 @@
-import mSwiper from './swiper.vue'
-import mSwiperItem from './swiperItem.vue'
+import rSwiper from './swiper.vue'
+import rSwiperItem from './swiper-item'
 
 export {
-  mSwiper,
-  mSwiperItem
+  rSwiper,
+  rSwiperItem
 }
