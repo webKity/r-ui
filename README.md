@@ -2,6 +2,16 @@
 
 > vue2.0 移动端UI组件
 
+## V1.0.2
+新增actionPanel\backtop\button\checkbox\confirm\dialog\head\loading\messageCode
+\modal\page\photoSwiper\picker\popup\scroll\search\select\tag\tip\video等组件
+
+## V1.0.1
+新增swiper
+
+## V1.0.0
+项目初始化
+
 ## Build Setup
 
 ``` bash
