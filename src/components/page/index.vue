@@ -18,7 +18,7 @@
 <script>
 import rBacktop from './../backtop'
 
-export default{
+export default {
   components: {rBacktop},
   data () {
     return {
@@ -36,14 +36,17 @@ export default{
     },
     resize () {
       setTimeout(this.computWH, 400)
+    },
+    init () {
+      this.computWH()
+      window.addEventListener('resize', this.resize)
+      this.$nextTick(() => {
+        this.wrap = this.$refs.wrap
+      })
     }
   },
   mounted () {
-    this.computWH()
-    window.addEventListener('resize', this.resize)
-    this.$nextTick(() => {
-      this.wrap = this.$refs.wrap
-    })
+    this.init()
   },
   beforeDestroy () {
     window.removeEventListener('resize', this.resize)

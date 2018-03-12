@@ -11,52 +11,65 @@
   @include px(border-radius, 10);
   overflow: hidden;
   .r-search-control{
+    position: relative;
     color: $grayColor;
     @include px(padding, 10);
     @include textSize;
-    .r-search-placeholder{
-      @include v-middle;
+  }
+  .r-search-placeholder{
+    width: 85%;
+    @include v-middle;
+    border: none;
+    background-color: transparent;
+    box-sizing: border-box;
+    color: $grayColor;
+  }
+  .head{
+    background-color: $whiteColor;
+    @include px(padding-left, 20);
+    .search-input{
+      @include px(padding-right, 20);
+      .input{
+        outline:none;
+        border: none;
+        @include px(width, 485);
+        @include px(height, 60);
+        @include px(line-height, 60);
+        @include px(padding-left, 10);
+        @include px(padding-right, 10);
+        @include px(margin-top, 15);
+        @include px(margin-bottom, 15);
+        box-sizing: border-box;
+        float: left;
+      }
+      i{
+        float: left;
+        color: $grayColor;
+        @include h6Size;
+        @include px(margin-top, 30);
+      }
+    }
+    .search-cancle{
+      width: 100%;
+      @include px(height, 90);
+      color: $primaryColor;
+      span{
+        width: 100%;
+        @include px(height, 40);
+        @include px(line-height, 40);
+        @include px(margin-top, 25);
+        text-align: center;
+        display:inline-block;
+        @extend .r-1px-l;
+      }
     }
   }
   .r-search-content{
+    @include one-screen;
+    position: fixed;
+    background-color: $lightGrayColor;
+    z-index: 9999;
     padding: 0;
-    .head{
-      background-color: $whiteColor;
-      @include px(padding-left, 20);
-      .search-input{
-        @include px(padding-right, 20);
-        .input{
-          width: 100%;
-          outline:none;
-          border: none;
-          @include px(width, 485);
-          @include px(height, 60);
-          @include px(line-height, 60);
-          @include px(padding-left, 10);
-          @include px(padding-right, 10);
-          @include px(margin-top, 15);
-          @include px(margin-bottom, 15);
-        }
-        i{
-          color: $grayColor;
-          @include h6Size;
-        }
-      }
-      .search-cancle{
-        width: 100%;
-        @include px(height, 90);
-        color: $primaryColor;
-        span{
-          width: 100%;
-          @include px(height, 40);
-          @include px(line-height, 40);
-          @include px(margin-top, 25);
-          text-align: center;
-          display:inline-block;
-          @extend .r-1px-l;
-        }
-      }
-    }
     .result{
       width: 100%;
       .tip{
@@ -92,5 +105,20 @@
         @extend .r-1px-b;
       }
     }
+  }
+  .r-search-input{
+    position: fixed;
+    left:0;
+    top:0;
+    z-index: 9999;
+    @include px(width, 540);
+    @include px(height, 40);
+    @include px(line-height, 40);
+    @include px(padding-left, 10);
+    @include px(padding-right, 10);
+    @include px(margin-top, 25);
+    @include px(margin-bottom, 25);
+    @include px(margin-left, 70);
+    color: $lightBlackColor;
   }
 }

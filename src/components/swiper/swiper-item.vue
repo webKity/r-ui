@@ -12,9 +12,8 @@ export default {
     })
   },
   beforeDestroy () {
-    const $parent = this.$parent
     this.$nextTick(() => {
-      $parent.destroy()
+      this.$parent.destroy()
     })
   }
 }

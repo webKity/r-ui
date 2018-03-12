@@ -3,7 +3,7 @@
     enter-active-class="animated quick fadeIn"
     leave-active-class="animated quick fadeOut">
     <div class="r-tip" v-show="visible" :class="customClass">
-      <span class="r-tip-text">{{ message }}</span>
+      <span class="r-tip-text" v-html="message"></span>
     </div>
   </transition>
 </template>

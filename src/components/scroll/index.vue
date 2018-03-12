@@ -44,6 +44,7 @@ export default{
   },
   methods: {
     init () {
+      this.isComplate = false
       this.scroll = this.$refs.scroll
       this.scrollWrap = this.scroll.childNodes[0]
       this.scroll.addEventListener('scroll', this.scrollEvent)

@@ -17,6 +17,29 @@ let utils = {
       }
       return false
     } catch (e) {}
+  },
+  resizeImg (str, w, h, defaultImg = 'other/default-room.png') {
+    if (!str) return defaultImg
+    let oldImg = str.indexOf('?x-oss-process=') >= 0 ? str.split('?x-oss-process=')[0] : str
+    let newImg = oldImg + '?x-oss-process=image/resize,m_fill,h_' + h + ',w_' + w
+    return newImg
+  },
+  formatDay (num) {
+    if (num === 0) {
+      return '星期天'
+    } else if (num === 1) {
+      return '星期一'
+    } else if (num === 2) {
+      return '星期二'
+    } else if (num === 3) {
+      return '星期三'
+    } else if (num === 4) {
+      return '星期四'
+    } else if (num === 5) {
+      return '星期五'
+    } else if (num === 6) {
+      return '星期六'
+    }
   }
 }
 

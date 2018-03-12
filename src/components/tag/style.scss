@@ -6,11 +6,11 @@
   @include linkSize;
   @include px(padding-left, 12);
   @include px(padding-right, 12);
-  @include px(padding-top, 3);
-  @include px(padding-bottom, 3);
-  @include px(border-radius, 5);
+  @include px(padding-top, 5);
+  @include px(padding-bottom, 5);
+  @include px(border-radius, 8);
   @include v-middle;
-  line-height: 1.4;
+  line-height: 1;
 }
 .r-tag.round{
   @include px(border-radius, 20);
@@ -29,6 +29,10 @@
   border:1px solid $greenColor;
   color: $greenColor;
 }
+.r-tag.light-green{
+  border:1px solid $lightGreenColor;
+  color: $lightGreenColor;
+}
 .r-tag.primary{
   border:1px solid $primaryColor;
   color: $primaryColor;
@@ -40,6 +44,14 @@
 .r-tag.blue{
   border:1px solid $blueColor;
   color: $blueColor;
+}
+.r-tag.orange{
+  border:1px solid $orangeColor;
+  color: $orangeColor;
+}
+.r-tag.orange{
+  border:1px solid $orangeColor;
+  color: $orangeColor;
 }
 .r-tag.info{
   border:1px solid $infoColor;

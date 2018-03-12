@@ -26,6 +26,7 @@
 
 @keyframes fadeIn {
   from {
+    will-change: transform;
     opacity: 0;
   }
 
@@ -40,6 +41,7 @@
 
 @keyframes fadeOut {
   from {
+    will-change: transform;
     opacity: 1;
   }
 
@@ -54,6 +56,7 @@
 
 @keyframes slideInDown {
   from {
+    will-change: transform;
     transform: translate(0, -100%);
   }
 
@@ -68,6 +71,7 @@
 
 @keyframes slideInLeft {
   from {
+    will-change: transform;
     transform: translate(-100%, 0);
     visibility: visible;
   }
@@ -83,6 +87,7 @@
 
 @keyframes slideInRight {
   from {
+    will-change: transform;
     -webkit-transform: translate(100%, 0);
     transform: translate(100%, 0);
     visibility: visible;
@@ -98,6 +103,7 @@
 
 @keyframes slideInUp {
   from {
+    will-change: transform;
     transform: translate(0, 100%);
     visibility: visible;
   }
@@ -113,10 +119,12 @@
 
 @keyframes slideOutDown {
   from {
+    will-change: transform;
     transform: translate(0, 0);
   }
 
   to {
+    will-change: transform;
     visibility: hidden;
     transform: translate(0, 100%);
   }
@@ -128,6 +136,7 @@
 
 @keyframes slideOutLeft {
   from {
+    will-change: transform;
     transform: translate(0, 0);
   }
 
@@ -143,6 +152,7 @@
 
 @keyframes slideOutRight {
   from {
+    will-change: transform;
     transform: translate(0, 0);
   }
 
@@ -158,6 +168,7 @@
 
 @keyframes slideOutUp {
   from {
+    will-change: transform;
     transform: translate(0, 0);
   }
 
@@ -177,6 +188,7 @@
 }
 @keyframes popIn {
   0% {
+    will-change: transform;
     transform: scale3d(0, 0, 0);
   }
   100% {
@@ -190,6 +202,7 @@
 }
 @keyframes popOut {
   0% {
+    will-change: transform;
     transform: scale3d(1,1,1);
   }
   100% {

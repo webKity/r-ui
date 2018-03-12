@@ -1,5 +1,5 @@
 <template>
-  <div v-show="isShow" class="r-backtop" @click="backTop">
+  <div v-if="isShow" class="r-backtop" @click="backTop">
     <i class="icon-top"></i><br />
     <span>顶部</span>
   </div>
@@ -21,7 +21,7 @@ export default{
   watch: {
     el (val) {
       if (val) {
-        this.el.addEventListener('scroll', this.isShowFun)
+        val.addEventListener('scroll', this.isShowFun)
       }
     }
   },

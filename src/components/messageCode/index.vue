@@ -1,7 +1,7 @@
 
 <template>
   <div class="r-message-code">
-    <r-button class="r-message-btn" type="primary" fill="fill" fluid="fluid" size="big"
+    <r-button class="r-message-btn" type="red" fill="fill" fluid="fluid" size="big"
       @click="getCode"
       :disabled="hasGetCode">
       {{ getCodeBtnMsg }}
@@ -34,7 +34,7 @@ export default {
     }
   },
   methods: {
-    getCode () {
+    async getCode () {
       var that = this
       if (that.serverUrl === '') {
         that.$tip('请填写获取验证码地址')

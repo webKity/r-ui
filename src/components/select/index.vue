@@ -4,6 +4,7 @@
     <select class="r-select-options" v-model="value">
       <option v-for="(item, index) in options" :value="item.value">{{item.label}}</option>
     </select>
+    <i class="icon-dropdow"></i>
   </div>
 </template>
 

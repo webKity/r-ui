@@ -23,6 +23,13 @@
     box-sizing: border-box;
   }
 }
+.r-button.mini{
+  @include linkSize;
+  @include px(padding-top, 10);
+  @include px(padding-bottom, 10);
+  @include px(padding-left, 7);
+  @include px(padding-right, 7);
+}
 .r-button.normal{
   @include textSize;
   @include px(padding-top, 22);
@@ -65,12 +72,20 @@
   background-color: $primaryColor;
   color: $whiteColor;
 }
+.r-button.fill.red{
+  background-color: $darkRedColor;
+  color: $whiteColor;
+}
 .r-button.blue{
   color: $blueColor;
   &:after {
     @include px(border-radius, 20);
     border: 1px solid $blueColor;
   }
+}
+.r-button.yellow{
+  background: $yellowColor;
+  color: $whiteColor;
 }
 .r-button.fill.blue{
   background-color: $blueColor;

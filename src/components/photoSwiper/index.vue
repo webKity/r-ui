@@ -116,7 +116,6 @@ export default {
       })
       this.photoswipe.listen('afterChange', () => {
         let index = this.photoswipe.getCurrentIndex()
-        console.log(index)
         this.$emit('afterChange', index)
       })
     }

@@ -1,30 +1,43 @@
+$colorDisparity: 10%;
+$bgColor: #efeff4;
+
 $whiteColor: #fff;
-$blackColor: #000;
-$lightBlackColor: #333;
 
-$darkGrayColor: #656565;
+$blackColor: #343434;
+$lightBlackColor: lighten($blackColor, $colorDisparity);
+
 $grayColor: #959595;
-$lightGrayColor: #f2f2f2;
+$darkGrayColor: #656565;
+$lightGrayColor: #f7f7f7;
 
-$darkPrimaryColor: #f79243;
-$primaryColor: #f6b37f;
-$lightPrimaryColor: #f7a58b;
+$primaryColor: #ff6e5f;
+$darkPrimaryColor: darken($primaryColor, $colorDisparity);
+$lightPrimaryColor: lighten($primaryColor, $colorDisparity);
 
-$darkGreenColor: #13b5b1;
+$yellowColor: #edd758;
+$darkYellowColor: darken($yellowColor, $colorDisparity);
+$lightYellowColor: lighten($yellowColor, $colorDisparity);
+
+$redColor: #eb6877;
+$darkRedColor: darken($redColor, $colorDisparity);
+$lightRedColor: lighten($redColor, $colorDisparity);
+
 $greenColor: #13b5b1;
-$lightGreenColor: #13b5b1;
+$darkGreenColor: darken($greenColor, $colorDisparity);
+$lightGreenColor: #5cb934;
 
-$darkYellowColor: #ffd259;
-$yellowColor: #ffd259;
-$lightYellowColor: #ffd259;
+$blueColor: #67c0ff;
+$darkBlueColor: darken($blueColor, $colorDisparity);
+$lightBlueColor: lighten($blueColor, $colorDisparity);
 
-$redColor: #f77878;
-$lightRedColor: #f77878;
+$orangeColor: #ffa317;
+$darkOrangeColor: darken($orangeColor, $colorDisparity);
+$lightOrangeColor: lighten($orangeColor, $colorDisparity);
 
-$blueColor: #17a1e6;
+$infoColor: #17a1e6;
+$darkInfoColor: darken($infoColor, $colorDisparity);
+$lightInfoColor: lighten($infoColor, $colorDisparity);
 
-$infoColor: #6bbb49;
-
-$borderColor: #e2e2e2;
+$borderColor: #dee3ec;
+$lightBorderColor: #e2e6ee;
 $defaultBtnColor: #b4b4b4;
-$placeholderColor: #b2b2b2;

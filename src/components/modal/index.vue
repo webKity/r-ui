@@ -3,7 +3,7 @@
     <transition
       enter-active-class="animated quick fadeIn"
       leave-active-class="animated quick fadeOut">
-      <div v-show="visible" class="r-modal-bg"></div>
+      <div v-show="visible" class="r-modal-bg" @click="maskClick"></div>
     </transition>
     <transition
       v-on:before-enter="beforeEnter"
@@ -19,6 +19,10 @@
 <script>
 export default {
   props: {
+    isMaskCanClick: {
+      type: Boolean,
+      default: false
+    },
     isShow: {
       type: Boolean,
       default: false
@@ -40,6 +44,10 @@ export default {
     },
     afterLeave () {
       this.parentEl.style.display = 'none'
+    },
+    maskClick () {
+      if (!this.isMaskCanClick) return
+      this.$emit('maskClick')
     }
   },
   mounted () {
