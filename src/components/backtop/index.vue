@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import Ani from './../utils/animation.js'
+import { tween, easing } from 'popmotion'
 
 export default{
   props: {
@@ -30,10 +30,12 @@ export default{
       var top = this.el.scrollTop
       let from = {y: top}
       let to = {y: 0}
-      let ani = new Ani()
-      ani.run(from, to, {
-        update: this.updateScrollTop
-      })
+      tween({
+        from: from,
+        to: to,
+        ease: easing.easeInOut,
+        duration: 600
+      }).start(this.updateScrollTop)
     },
     updateScrollTop (rs) {
       this.el.scrollTop = rs.y

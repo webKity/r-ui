@@ -1,6 +1,8 @@
 <template>
   <div ref="scroll" class="r-scroll">
-    <slot></slot>
+    <div class="r-scroll-wrap">
+      <slot></slot>
+    </div>
     <slot name="loading">
       <div v-show="isLoading" class="r-scroll-loading">
         <r-loading></r-loading>

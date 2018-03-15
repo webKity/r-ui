@@ -1,75 +1,46 @@
 <template>
-  <div class="index">
-    <r-swiper height="180px">
-      <r-swiper-item class="item">
-        <router-link to="/link">asdasd</router-link>
-      </r-swiper-item>
-      <r-swiper-item class="item">231321313</r-swiper-item>
-    </r-swiper>
-    213213<br />
-    213213<br />
-    213213<br />
-    213213<br />
-    213213<br />
-    213213<br />
-    213213<br />
-    213213<br />
-    213213<br />
-    213213<br />
-    213213<br />
-    213213<br />
-    213213<br />
-    213213<br />
-    213213<br />
-    213213<br />
-    213213<br />
-    213213<br />
-    213213<br />
-    213213<br />
-    213213<br />
-    213213<br />
-    213213<br />
-    213213<br />
-    213213<br />
-    213213<br />
-    213213<br />
-    213213<br />
-    213213<br />
-    213213<br />
-    213213<br />
-    213213<br />
-    213213<br />
-    213213<br />
-    213213<br />
-    213213<br />
-  </div>
+  <r-page>
+    <r-head slot="head">DEMO</r-head>
+    <div slot="content" class="index">
+      <div class="list">
+        <r-cell label="slideMenu" link="/slideMenu"></r-cell>
+        <r-cell label="swiper" link="/swiper"></r-cell>
+        <r-cell label="loadmore" link="/loadmore"></r-cell>
+      </div>
+    </div>
+  </r-page>
 </template>
 
 <script>
-import {rSwiper, rSwiperItem} from '../../components/swiper'
+const rPage = () => import('./../../components/page')
+const rHead = () => import('./../../components/head')
+const rCell = () => import('./../../components/cell')
 
 export default{
-  components: {rSwiper, rSwiperItem},
-  data () {
-    return {
-      swiperActive: 0
-    }
-  },
-  mounted () {
-    setTimeout(() => {
-      this.swiperActive++
-    }, 5200)
+  components: {
+    rPage,
+    rHead,
+    rCell
   }
 }
 </script>
 
 <style lang="scss">
-.item{
-  background-color: #f2f2f2;
-  text-align: center;
-  a{
-    display: block;
-    height: 100%
+@import './../../components/style/color.scss';
+@import './../../components/style/fontSize.scss';
+@import './../../components/style/mixin.scss';
+@import './../../components/style/1px.scss';
+
+.index{
+  background-color: $whiteColor;
+  .list{
+    .item{
+      @include textSize;
+      @include px(padding, 30);
+      @extend .r-1px-r;
+      @extend .r-1px-b;
+      text-align: center;
+    }
   }
 }
 </style>

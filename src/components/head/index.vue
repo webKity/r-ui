@@ -1,7 +1,7 @@
 <template>
   <div class="r-head">
     <div class="r-head-back" @click="$emit('back')">
-      <i class="icon-left"></i>
+      <i class="ricon-back"></i>
     </div>
     <div class="r-head-title">
       <slot></slot>
@@ -27,9 +27,9 @@
     position: absolute;
     left:0;
     top:0;
-    @include px(padding, 25);
-    @include px(padding-top, 30);
+    @include px(padding, 20);
     text-align: center;
+    @include h5Size;
   }
   .r-head-title{
     @include px(width, 550);
