@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "node-sass": "^4.5.3",
+    "popmotion": "^8.1.21",
     "ramda": "^0.25.0",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
