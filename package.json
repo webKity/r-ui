@@ -11,6 +11,7 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
+    "fastclick": "^1.0.6",
     "node-sass": "^4.5.3",
     "popmotion": "^8.1.21",
     "ramda": "^0.25.0",
