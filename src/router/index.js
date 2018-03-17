@@ -7,7 +7,7 @@ const Loadmore = () => import('@/pages/loadmore/loadmore.vue')
 
 Vue.use(Router)
 
-export default new Router({
+let router = new Router({
   routes: [
     {path: '/', name: 'index', component: Index},
     {path: '/slideMenu', name: 'slideMenu', component: SlideMenu},
@@ -15,3 +15,11 @@ export default new Router({
     {path: '/loadmore', name: 'loadmore', component: Loadmore}
   ]
 })
+
+router.afterEach(function (to) {
+  if (window.ga) {
+    window.ga('set', 'page', to.fullPath)
+    window.ga('send', 'pageview')
+  }
+})
+export default router
