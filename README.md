@@ -2,7 +2,6 @@
 
 > vue2.0 移动端UI组件
 
-git分支使用测试
 ## V1.0.2
 新增actionPanel\backtop\button\checkbox\confirm\dialog\head\loading\messageCode
 \modal\page\photoSwiper\picker\popup\scroll\search\select\tag\tip\video等组件
