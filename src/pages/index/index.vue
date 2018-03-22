@@ -6,6 +6,7 @@
         <r-cell label="slideMenu" link="/slideMenu"></r-cell>
         <r-cell label="swiper" link="/swiper"></r-cell>
         <r-cell label="loadmore" link="/loadmore"></r-cell>
+        <r-cell label="swiperOut" link="/swiperOut"></r-cell>
       </div>
     </div>
   </r-page>
