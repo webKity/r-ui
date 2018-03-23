@@ -32,8 +32,8 @@
     @include h5Size;
   }
   .r-head-title{
-    @include px(width, 550);
     @include px(margin-left, 100);
+    @include px(margin-right, 100);
     @include px(height, 100);
     @include px(line-height, 100);
     text-align: center;
