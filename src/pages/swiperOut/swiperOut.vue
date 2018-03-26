@@ -47,14 +47,14 @@ export default{
 .swiper-out{
   .r-swiper-out-item{
     @include textSize;
-    @include px(height, 80);
-    @include px(line-height, 80);
+    @include px(height, 85);
+    @include px(line-height, 85);
     @include px(padding-left, 20);
     @extend .r-1px-b;
   }
   .r-swiper-out-item-btn{
-    @include px(height, 80);
-    @include px(line-height, 80);
+    @include px(height, 85);
+    @include px(line-height, 85);
   }
 }
 </style>

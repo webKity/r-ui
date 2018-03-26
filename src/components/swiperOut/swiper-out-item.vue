@@ -15,7 +15,6 @@
 </template>
 
 <script>
-
 export default{
   data () {
     return {
@@ -23,7 +22,6 @@ export default{
       startX: 0,
       translateX: 0,
       oldPoint: null,
-      isDelete: false,
       btnsWidth: 0
     }
   },
@@ -67,7 +65,6 @@ export default{
       this.translateX = 0
     },
     delItem () {
-      console.log(this)
       this.$parent.$emit('childRemove', this.$el)
     }
   },
