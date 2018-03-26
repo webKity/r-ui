@@ -1,50 +1,35 @@
 <template>
-  <transition
-  @leave="leave"
-  @after-leave="afterLeave">
-    <li v-if="!isDelete" class="r-swiper-out-item"
-    :style="itemStyle">
-      <div class="r-swiper-out-item-content" ref="content"
-      @touchstart="touchstart"
-      @touchmove="touchmove"
-      @touchend="touchend">
-        <slot></slot>
-      </div>
-      <div class="r-swiper-out-item-btns" ref="btns">
-        <slot name="btns">
-          <div class="r-swiper-out-item-btn" @click="delItem">删除</div>
-        </slot>
-    	</div>
-    </li>
-  </transition>
+  <li class="r-swiper-out-item" :style="itemStyle">
+    <div class="r-swiper-out-item-content" ref="content"
+    @touchstart="touchstart"
+    @touchmove="touchmove"
+    @touchend="touchend">
+      <slot></slot>
+    </div>
+    <div class="r-swiper-out-item-btns" ref="btns">
+      <slot name="btns">
+        <div class="r-swiper-out-item-btn" @click="delItem">删除</div>
+      </slot>
+    </div>
+  </li>
 </template>
 
 <script>
-import { tween, easing } from 'popmotion'
 
 export default{
-  props: {
-    duration: {
-      type: [Number, String],
-      default: 300
-    }
-  },
   data () {
     return {
-      speed: 0,
+      speed: 300,
       startX: 0,
       translateX: 0,
       oldPoint: null,
       isDelete: false,
-      itemHeight: 0,
-      contentHeight: 0,
       btnsWidth: 0
     }
   },
   computed: {
     itemStyle () {
       return {
-        height: `${this.itemHeight}px`,
         transform: `translate3d(${this.translateX}px, 0, 0)`,
         transition: `all ${this.speed}ms`
       }
@@ -62,6 +47,7 @@ export default{
       if (Math.abs(moveX) < Math.abs(moveY) || Math.abs(moveX) < 20 || Math.abs(moveY) > 30) return
 
       e.preventDefault()
+      this.$parent.$emit('changeActiveItem', this)
       moveX = this.startX * 1 + moveX * 1
 
       if (moveX < -this.btnsWidth) {
@@ -74,30 +60,19 @@ export default{
     },
     touchend (e) {
       let moveX = -this.translateX > 30 ? -this.btnsWidth : 0
-      this.speed = this.duration
+      this.speed = 300
       this.translateX = moveX
     },
+    close () {
+      this.translateX = 0
+    },
     delItem () {
-      this.isDelete = true
-    },
-    leave () {
-      tween({
-        from: {h: this.contentHeight},
-        to: {h: 0},
-        ease: easing.easeInOut,
-        duration: this.speed
-      }).start(this.updateItemHeight)
-    },
-    updateItemHeight (rs) {
-      this.itemHeight = rs.h
-    },
-    afterLeave () {
-      this.$parent.$emit('childRemove', this.$vnode.elm)
+      console.log(this)
+      this.$parent.$emit('childRemove', this.$el)
     }
   },
   mounted () {
     this.$nextTick(() => {
-      this.itemHeight = this.contentHeight = this.$refs.content.offsetHeight
       this.btnsWidth = this.$refs.btns.offsetWidth
     })
   }
