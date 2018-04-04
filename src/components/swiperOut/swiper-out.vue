@@ -21,6 +21,7 @@ export default{
     },
     childRemove (childNode) {
       this.$refs.swiperOut.removeChild(childNode)
+      this.$emit('onremove', childNode)
     }
   },
   created () {
