@@ -1,5 +1,6 @@
 /*
  * 验证函数包含常用各种类型的验证正则
+ * @update 2018/03/23
  * */
 function Rules () {
   var self = this
@@ -38,6 +39,22 @@ function Rules () {
     }
   }
 }
+/**
+ * 添加规则函数
+ * @param {*} key 规则名称
+ * @param {*} obj 用于验证的正则表达式，或者是含有test方法的对象
+ * @return {object} this: 该对象本身，方便链式调用，如：rules.addRule().validator()
+ */
+Rules.prototype.addRule = function (key, obj) {
+  this.regRules[key] = obj
+  return this
+}
+/**
+ * 发起验证
+ * @param {*} value 被校验的值
+ * @param {*} reg 验证规则：规则是字符串则使用内置规则校验，否则判定为传入的是正则表达式，直接用该参数进行校验
+ * @return {boolean}  验证结果：true验证通过，false验证失败
+ */
 Rules.prototype.validator = function (value, reg) {
   let result = false
   var isString = typeof reg === 'string'

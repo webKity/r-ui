@@ -2,7 +2,10 @@
   <r-page class="loadmore">
     <r-head slot="head" @click.native="$router.go(-1)">loadmore</r-head>
     <r-scroll slot="content" ref="scroll" @loadmore="queryDate">
-      <div class="item" v-for="(item, index) in list">{{item}}</div>
+      <div class="title">
+        您想要看代码具体的实现思路，请看<a href="https://juejin.im/post/5aa4b688518825557f008aa1">《干货--手把手撸vue移动UI框架： 滑动加载》</a>
+      </div>
+      <div class="item" v-for="(item, index) in list" :key="index">{{item}}</div>
     </r-scroll>
   </r-page>
 </template>
@@ -51,11 +54,15 @@ export default{
 </script>
 
 <style lang="scss">
-.item{
-  background-color: #f2f2f2;
-  border-bottom: 1px solid #fff;
-  height: 40px;
-  line-height: 40px;
-  text-align: center;
+@import './../../components/style/fontSize.scss';
+.loadmore{
+  @include textSize;
+  .item{
+    background-color: #f2f2f2;
+    border-bottom: 1px solid #fff;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+  }
 }
 </style>

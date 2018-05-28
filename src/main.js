@@ -4,9 +4,11 @@ import Vue from 'vue'
 import App from './App'
 import fastclick from 'fastclick'
 import router from './router'
+import tip from './components/tip/tip'
 import './components/style/font/iconfont.scss'
 
 Vue.config.productionTip = false
+Vue.use(tip)
 
 fastclick.attach(document.body)
 /* eslint-disable no-new */

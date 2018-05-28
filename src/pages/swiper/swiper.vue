@@ -2,6 +2,9 @@
   <r-page class="swiper">
     <r-head slot="head" @click.native="$router.go(-1)">Swiper</r-head>
     <div slot="content">
+      <div class="title">
+        您想要看代码具体的实现思路，请看<a href="https://juejin.im/post/5aa1e657f265da23826d9176">《干货--手把手撸vue移动UI框架：滑动轮播》</a>
+      </div>
       <div class="title">无自动轮播</div>
       <r-swiper height="7.46667rem" ref="swiper">
         <r-swiper-item v-for="(item, index) in list" :key="index"

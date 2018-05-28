@@ -7,6 +7,7 @@
         <r-cell label="swiper" link="/swiper"></r-cell>
         <r-cell label="loadmore" link="/loadmore"></r-cell>
         <r-cell label="swiperOut" link="/swiperOut"></r-cell>
+        <r-cell label="tip" link="/tip"></r-cell>
       </div>
     </div>
   </r-page>

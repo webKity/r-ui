@@ -1,8 +1,6 @@
 <template>
-  <transition
-    enter-active-class="animated quick fadeIn"
-    leave-active-class="animated quick fadeOut">
-    <div class="r-tip" v-show="visible" :class="customClass">
+  <transition name="fade">
+    <div class="r-tip" v-if="visible">
       <span class="r-tip-text" v-html="message"></span>
     </div>
   </transition>
@@ -10,39 +8,12 @@
 <script type="text/babel">
   export default {
     props: {
-      message: String,
-      position: {
-        type: String,
-        default: 'placemiddle'
-      },
-      className: {
-        type: String,
-        default: ''
-      }
+      message: String
     },
 
     data () {
       return {
         visible: false
-      }
-    },
-
-    computed: {
-      customClass () {
-        var classes = []
-        switch (this.position) {
-          case 'top':
-            classes.push('is-placetop')
-            break
-          case 'bottom':
-            classes.push('is-placebottom')
-            break
-          default:
-            classes.push('is-placemiddle')
-        }
-        classes.push(this.className)
-
-        return classes.join(' ')
       }
     }
   }
@@ -64,25 +35,19 @@
   box-sizing: border-box;
   text-align: center;
   z-index: 9999;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -100%);
 }
 .r-tip-text{
   @include textSize;
   display: block;
   text-align: center;
 }
-.is-placetop{
-  top:50px;
-  left: 50%;
-  -webkit-transform: translate(-50%, 0);
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .3s;
 }
-.is-placemiddle{
-  top:50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -100%);
-}
-.is-placebottom{
-  bottom: 50px;
-  left: 50%;
-  -webkit-transform: translate(-50%, 0);
+.fade-enter, .fade-leave-to {
+  opacity: 0;
 }
 </style>
